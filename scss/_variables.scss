@@ -1,0 +1,168 @@
+// Breakpoint viewport sizes and media queries.
+
+// Maximum breakpoint width 
+$scr-max-767: 767px;
+$scr-max-991: 991px;
+$scr-max-1024: 1024px;
+$scr-max-1200: 1200px;
+
+// Minimum breakpoint width 
+$scr-min-768: 768px;
+$scr-min-992: 992px;
+$scr-min-1600: 1600px;
+
+
+//media query mixins for max widths
+
+@mixin scr-max-767 {
+  @media (max-width: #{$scr-max-767}){
+    @content;
+  }
+}
+@mixin scr-max-991 {
+  @media (max-width: #{$scr-max-991}) {
+    @content;
+  }
+}
+@mixin scr-max-1024 {
+  @media (max-width: #{$scr-max-1024}) {
+    @content;
+  }
+}
+@mixin scr-max-1200 {
+  @media (max-width: #{$scr-max-1200}) {
+    @content;
+  }
+}
+//media query mixins for min widths 
+@mixin scr-min-768 {
+  @media (min-width: #{$scr-min-768}){
+    @content;
+  }
+}
+@mixin scr-min-1600 {
+  @media (min-width: #{$scr-min-1600}){
+    @content;
+  }
+}
+
+// tab protrait media query
+@mixin scr-tab-portrait {
+  @media only screen and (max-width: #{$scr-max-991}) and (min-width: #{$scr-min-768}){ 
+    @content;
+  }
+}
+// tab landscape media query
+@mixin scr-tab-landscape {
+  @media only screen and (max-width: #{$scr-max-1024}) and (min-width: #{$scr-min-992}){ 
+    @content;
+  }
+}
+
+// Random media queries
+
+@mixin scr-min-992-max-1200 {
+  @media only screen and (max-width: #{$scr-max-1200}) and (min-width: #{$scr-min-992}){ 
+    @content;
+  }
+}
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  background: tomato;
+  padding: 30px;
+  h2 {
+    padding:0;
+    margin:0;
+  }
+}
+.links {
+  li {
+    display: inline-block;
+  }
+}
+.section-box {
+  min-height: 100vh;
+  &.section-one {
+    border:1px solid lightgreen;
+  }
+  &.section-two {
+    border:1px solid red;
+  }
+  &.section-three {
+    border:1px solid green;
+  }
+  .section-box__content {
+    padding: 100px 20px;
+    h2 {
+      transform: translate3d(0, 100px, 0px);
+      transition: all 10s ease-in-out;
+      animation: bobble 5s;
+      animation-delay: 2.1s;
+    }
+    p {
+      font-size:24px;
+      line-height: 1.4;
+      transform: translate3d(0, 100px, 0px);
+      transition: all 10s ease-in-out;
+      animation: bobble 5s;
+      animation-delay: 2s;
+    }
+  }
+}
+.slider-wrap {
+  height: 100%;
+  position:relative;
+  .slide {
+    height: 100vh;
+    padding-top :40vh;
+  }
+}
+.slick-arrow {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  &.slick-next {
+    right: 0;
+  }
+  &.slick-next {
+    right: 0;
+  }
+}
+footer {
+  padding: 30px 0;
+}
+.wrapper--home {
+  background-image: url(../images/tronx-tcare.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left top; 
+  background-attachment: fixed;
+}
+.section {
+  height: 600px;
+  padding: 150px 0;
+}
+body {
+  position: relative;
+}
+.avbar-example {
+  position: relative;
+}
+@keyframes bobble {
+    0% {
+        transform: translate3d(0, 0, 0px);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: translate3d(0, 100px, 0px);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translate3d(0, 100px, 0px);
+    }
+}
+
+
